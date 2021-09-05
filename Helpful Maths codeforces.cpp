@@ -3,26 +3,22 @@ using namespace std;
 int main ()
 {
     string s;
-    cin>>s;
-    int n=s.length();
-    int a[n],i,p=0;
-    for(i=0;i<n;i=i+2)
-    {
-        a[p]=s[i];
-        p++;
-    }
-    int q=sizeof(a)/sizeof(a[0]);
-    sort(a,a+q);
-    for(i=0;i<p;i++)
-    {
-        cout<<a[i];
-        cout<<endl;
-    }
-    for(int i=0;i<p-1;i++)
-    {
-       // cout<<a[i]<<"+";
-    }
-    //cout<<a[p-1];
-
+	char a[100];
+	cin>>s;
+	int j=0;
+	for (int i=0;i<s.length();i++)
+	{
+		if (s[i]!='+')
+		{
+			a[j]=s[i];
+			j++;
+		}
+	}
+	sort(a,a+j);
+	for (int i=0;i<j;i++)
+	{
+		if (i==j-1) cout<<a[i]<<endl;
+		else cout<<a[i]<<"+";
+	}
     return 0;
 }

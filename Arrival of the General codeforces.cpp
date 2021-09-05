@@ -1,9 +1,8 @@
-
 #include<bits/stdc++.h>
 using namespace std;
 int main()
 {
-    int n,count=0,max,min,swap;
+    int n,count=0,max,min,swap,p=0,q=0;
     cin>>n;
     int i,a[n];
     for(i=0;i<n;i++)
@@ -17,25 +16,21 @@ int main()
         if(max<a[i])
         {
             max=a[i];
+            p=i;
         }
-        if(min<a[i])
+        if(min>=a[i])
         {
             min=a[i];
+            q=i;
         }
     }
-    for(i=0;i<n;i++){
-    if(a[0]==max && a[n-1]==min )
+    //cout<<q<<p;
+    if(p>q)
     {
-        cout<<count;
+         cout<<p+n-2-q;
     }
     else{
-        a[i]=swap;
-        a[i]=a[i+1];
-        a[i+1]=swap;
-        count++;
-        i++;
-
-    }
+    cout<<p+n-1-q;
     }
     return 0;
 }

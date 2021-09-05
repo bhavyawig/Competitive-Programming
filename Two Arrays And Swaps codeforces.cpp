@@ -1,4 +1,3 @@
-
 #include<bits/stdc++.h>
 using namespace std;
 int main()
@@ -7,9 +6,9 @@ int main()
     cin>>t;
     for(int i=0;i<t;i++)
     {
-        int n,k;
+        int n,k,sum=0;
         cin>>n;cin>>k;
-        int a[n],b[n];
+        int a[n],b[n],c=0,m=n-1;
         for(int j=0;j<n;j++)
         {
             cin>>a[j];
@@ -22,17 +21,18 @@ int main()
         sort(a,a+q);
         int r=sizeof(b)/sizeof(b[0]);
         sort(b,b+r);
-        for(int j=0;j<n;j++)
+        for(int e=0;e<k;e++)
         {
-            suma=suma+a[j];
-            sumb=sumb+b[j];
+            if(b[m]>a[c]){
+            a[c]=b[m];
+            c++;
+            m--;}
         }
-        if(suma>=sumb)
+         for(int j=0;j<n;j++)
         {
-
+            sum=sum+a[j];
         }
+        cout<<sum<<endl;
     }
-
-
     return 0;
 }

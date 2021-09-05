@@ -1,25 +1,27 @@
-#include<bits/stdc++.h>
+#include <iostream>
+
 using namespace std;
+
 int main()
 {
-    string s;
-    cin>>s;
-    set<string, greater<string>>s1;
-    set<string, greater<string> >::iterator itr;
-
-
-        s1.erase(4);
-        s1.erase(7);
-
-    int n =size(s1);
-    if(n==0)
+    long long n;
+    cin >> n;
+    int count = 0;
+    while (n != 0)
     {
-        cout<<"YES";
+        if (n % 10 == 4 || n % 10 == 7)
+        {
+            count += 1;
+        }
+        n /= 10;
+    }
+    if (count == 4 || count == 7)
+    {
+        cout << "YES" << endl;
     }
     else
     {
-        cout<<"NO";
+        cout << "NO" << endl;
     }
-    cout<<"YES";
     return 0;
 }

@@ -5,36 +5,31 @@ int main()
     int n,p,q,i;
     cin>>n;
     cin>>p;
-    int a[p];
+    int a[p],arr[n+1];
+     for(i=1;i<=n;i++)
+    {
+        arr[i]=0;
+    }
     for(i=0;i<p;i++)
     {
         cin>>a[i];
+        arr[a[i]]++;
     }
     cin>>q;
     int s[q];
     for(i=0;i<q;i++)
     {
         cin>>s[i];
+        arr[s[i]]++;
     }
-       int new1[n];
-     for(i=0;i<n;i++)
+    for(i=1;i<=n;i++)
     {
-        new1[i]=0;
-    }
-    for(i=0;i<n;i++)
-    {
-        new1[w[i]]++;
-    }
-    for(i=0;i<n;i++)
-    {
-        if(new1[i]==0)
-          {
-            cout<<"Oh, my keyboard!";
+        if(arr[i]<=0)
+        {
+            cout<<"Oh, my keyboard!"<<endl;
             exit(0);
         }
     }
-    cout<<"I become the guy.";
-
-
+    cout<<"I become the guy."<<endl;
     return 0;
 }
