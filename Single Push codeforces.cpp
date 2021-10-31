@@ -27,12 +27,12 @@ int main()
             {
                 z++;
             }
-            else
+            else if(dif>=0)
             {
                 arr[k]=i;
                 k++;
                 p=k;
-                s.insert(i);
+                s.insert(dif);
             }
         }
         if(z>=1)
@@ -41,23 +41,15 @@ int main()
         }
         else
         {
-            if(s.size()==1 || s.size()==2)
+            if(s.size()==1)
             {
-                for(int i=0;i<=p;i++)
+                cout<<"YES"<<endl;
+            }
+            else if( s.size()==2)
+            {
+               for(int i=0;i<p;i++)
                 {
-                    if(q==0 && arr[i]!=0)
-                    {
-                        q++;
-                        first=i;
-                    }
-                    else if(q>0 && arr[i]!=0)
-                    {
-                        last=i;
-                    }
-                }
-                for(int i=first;i<last;i++)
-                {
-                    if(a[i]==a[i+1])
+                    if(a[i+1]==a[i])
                     {
                         continue;
                     }
@@ -65,6 +57,7 @@ int main()
                     {
                         w++;
                     }
+                }
                 }
                 if(w>=1)
                 {
