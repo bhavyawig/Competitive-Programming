@@ -1,35 +1,35 @@
 
 #include<bits/stdc++.h>
 using namespace std;
+typedef long long int lli;
 int main()
 {
-    int n,k,i,p=0;
+    lli n,k;
     cin>>n;
     cin>>k;
-    int div=n/2;
-    if(k>=div)
+    if(n%2==0){
+    if(n/2>=k)
     {
-        for(int i=2;i<k;i=i+2)
-        {
-            int a;
-            a=i;
-        }
+        cout<<(k*2)-1<<endl;
     }
     else
     {
+        lli s=n/2;
+        cout<<(k-s)*2<<endl;
+    }}
+    else
+    {
+        if((n/2)+1>=k)
+    {
+        cout<<(k*2)-1<<endl;
+    }
+    else
+    {
+        lli s=(n/2)+1;
+        cout<<(k-s)*2<<endl;
+    }
+    }
 
-    }
-    for(int i=1;i<=n;i=i+2)
-    {
-        new1[p]=i;
-        p++;
-    }
-    for(int i=2;i<=n;i=i+2)
-    {
-        new1[p]=i;
-        p++;
-    }
-    cout<<new1[k-1];
 
     return 0;
 }

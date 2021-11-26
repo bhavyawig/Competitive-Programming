@@ -7,8 +7,8 @@ int main()
   lli n,m;
   cin>>n>>m;
   char a[n][m];
-  lli n[m];
-  set<lli> s;
+  lli u[m];
+  lli count=0;
   for(lli i=0;i<n;i++)
   {
       for(lli j=0;j<m;j++)
@@ -18,23 +18,24 @@ int main()
   }
   for(lli i=0;i<m;i++)
   {
-      cin>>n[i];
+      cin>>u[i];
   }
   for(lli i=0;i<m;i++)
   {
+      map<char,lli> w;
       for(lli j=0;j<n;j++)
       {
-          s.insert(a[i][j]);
+          w[a[j][i]]++;
       }
-      lli diff=s.size();
-      if(diff==n)
+      lli maxx=0;
+      for(auto x : w)
       {
-          count=count+n[i];
+          maxx=max(maxx,x.second);
       }
-      else if(diff<n)
-      {
-
-      }
+      count=count+(maxx*u[i]);
   }
+  cout<<count<<endl;
+
+
     return 0;
 }
