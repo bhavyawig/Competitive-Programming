@@ -1,21 +1,19 @@
 #include<bits/stdc++.h>
 using namespace std;
+typedef long long int lli;
+
 int main()
 {
-    int x;
-    cin>>x;
-    long long int n,count=0;
-    n=log(x)/log(2);
-    while(n>=1 && x>0)
-    {
-        n=log(x)/log(2);
-        x=x-pow(2,n);
-        //cout<<x<<endl;
-        count++;
-    }
-  // cout<<count<<endl;
-    //cout<<x<<endl;
-    count=count+x;
-    cout<<count;
+   lli x;
+   cin>>x;
+   lli count=0;
+   while(x)
+   {
+       x=x&(x-1);
+       count++;
+   }
+
+
+  cout<<count<<endl;
     return 0;
 }
