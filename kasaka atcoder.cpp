@@ -11,14 +11,42 @@ int main()
   reverse(n.begin(),n.end());
   if(n==s)
   {
-      cout<<"yes";
+      cout<<"Yes";
   }
   else
   {
       if(s[len-1]=='a')
       {
           string cpy,cpy1;
-          for(lli i=0;i<len-1;i++)
+          lli cnt=0,x=0,cnt1=0,q=0;
+          for(lli i=len-2;i>=0;i--)
+          {
+              if(s[i]=='a' && x==0)
+              {
+                  cnt++;
+              }
+              else
+              {
+                  x++;
+              }
+          }
+          for(lli i=0;i<len;i++)
+          {
+              if(s[i]=='a' && q==0)
+              {
+                  cnt1++;
+              }
+              else
+              {
+                  q++;
+              }
+          }
+          if(cnt1>cnt+1)
+          {
+              cout<<"No"<<endl;
+          }
+          else{
+          for(lli i=cnt1;i<len-1-cnt;i++)
           {
               cpy+=s[i];
               cpy1+=s[i];
@@ -32,10 +60,11 @@ int main()
           {
               cout<<"No";
           }
+          }
       }
       else
       {
-          cout<<"no";
+          cout<<"No";
       }
   }
     return 0;

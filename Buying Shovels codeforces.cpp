@@ -9,7 +9,7 @@ int main()
    for(lli e=0;e<test;e++)
    {
        lli n,k;
-       lli p=0;
+       lli p=0,ans=1,z=0;
        cin>>n>>k;
        if(n<=k)
        {
@@ -17,21 +17,22 @@ int main()
        }
        else
        {
-           for(lli i=2;i<=sqrt(k);i++)
+           for(lli i=2;i<=sqrt(n);i++)
            {
                if(n%i==0)
                {
-                   p=i;
+                  // cout<<"here";
+                   if(i<=k)
+                       ans=max(ans,i);
+                   if(n/i<=k)
+                    ans=max(ans,n/i);
+                   //p=max(i,n/i);
+                   //ans=max(p,ans);
+                   //z++;
                }
            }
-           if(p==0)
-           {
-               cout<<n<<endl;
-           }
-           else
-           {
-               cout<<n/p<<endl;
-           }
+         //  cout<<p<<" yeh h p"<<endl;
+               cout<<n/ans<<endl;
        }
    }
 

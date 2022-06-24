@@ -6,15 +6,11 @@ int main()
 {
     lli n;
     cin>>n;
-    if(n==2)
-    {
-        cout<<"3"<<endl;
+    lli cnt=0;
+     for(lli i=0;i<n;i++){
+        cnt+=(i+1)*(n-i)-i;
     }
-    else
-    {
-        lli ans=n*(n-1);
-        cout<<ans+1;
-    }
+    cout<<cnt<<endl;
     return 0;
 }
 
