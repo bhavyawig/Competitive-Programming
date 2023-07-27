@@ -4,62 +4,59 @@ typedef long long int lli;
 bool ans=1;
 lli cycle_node,endd;
 vector<lli> temp;
-bool dfs(vector<lli> adj[], vector<lli> &vis, vector<lli> &pp,lli node,lli prt)
+bool dfs(vector<lli> adj[], vector<lli> &vis, vector<lli> &pp,lli node,lli prt, vector<lli> &path)
 {
     vis[node]=1;
+    path[node]=1;
     pp[node]=prt;
    // cout<<node<<endl;
     for(auto itr:adj[node]) // 1 3 5 4
     {
         if(vis[itr]==0)
         {
-            if(dfs(adj,vis,pp,itr,node))
+            if(dfs(adj,vis,pp,itr,node,path))
             {
                 return true;
             }
         }
-        else if(itr!=prt)
+        else if(path[itr]==1)
             {
                 cycle_node=node;
                 endd=itr;
                 return true;
             }
     }
+    path[node]=0;
     //vec.pop_back();
     return false;
 }
 
 int main()
 {
-    lli n,m;
-   cin>>n>>m;
+   lli n;
+   cin>>n;
    vector<lli> adj[n+1];
-   for(lli i=0;i<m;i++)
+   for(lli i=0;i<n;i++)
    {
-       lli a,b;
-       cin>>a>>b;
-       adj[a].push_back(b);
-       adj[b].push_back(a);
+     lli a;
+     cin>>a;
+     adj[i+1].push_back(a);
    }
-   vector<lli> vis(n+1,0);
+    vector<lli> vis(n+1,0);
+    vector<lli> path(n+1,0);
    vector<lli> pp(n+1);
-   lli no=0;
+   lli yes=0;
    for(int i=1;i<=n;i++)
    {
-       if(vis[i]==0){
-        if(dfs(adj,vis,pp,i,-1))
+       if(vis[i]==0 && yes==0){
+        if(dfs(adj,vis,pp,i,-1,path))
            {
-              // temp.push_back(i);
-              //cout<<i<<endl;
-              no++;
-              break;
+            yes++;
+            break;
            }    
        }
    }
-   if(no==0) cout<<"IMPOSSIBLE"<<endl;
-   else
-   {
-       vector<lli> temp;
+   vector<lli> temp;
        temp.push_back(cycle_node);
        lli uff=cycle_node;
        while(uff!=endd)
@@ -68,12 +65,10 @@ int main()
         uff=pp[uff];
        }
        temp.push_back(cycle_node);
-       cout<<temp.size()<<endl;
-       for(lli i=0;i<temp.size();i++)
+       reverse(temp.begin(),temp.end());
+       cout<<temp.size()-1<<endl;
+       for(lli i=0;i<temp.size()-1;i++)
        cout<<temp[i]<<" ";
-   }
-
-
     return 0;
 
 }

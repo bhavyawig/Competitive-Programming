@@ -1,30 +1,43 @@
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long int lli;
-bool ans=1;
 lli cycle_node,endd;
 vector<lli> temp;
-bool dfs(vector<lli> adj[], vector<lli> &vis, vector<lli> &pp,lli node,lli prt)
+lli ans=0;
+bool dfs(vector<vector<lli>> adj[], vector<lli> &vis, vector<lli> &pp,lli node,lli prt, vector<lli> &path
+,lli we)
 {
     vis[node]=1;
+    path[node]=1;
     pp[node]=prt;
+    ans+=we;
    // cout<<node<<endl;
     for(auto itr:adj[node]) // 1 3 5 4
     {
-        if(vis[itr]==0)
+        lli index=itr[0];
+        lli wo=itr[1];
+        if(vis[index]==0 || path[index]==0)
         {
-            if(dfs(adj,vis,pp,itr,node))
+            if(dfs(adj,vis,pp,index,node,path,wo))
             {
                 return true;
             }
         }
-        else if(itr!=prt)
+        else if(path[index]==1)
             {
+                ans+=wo;
+                if(ans<0){
                 cycle_node=node;
-                endd=itr;
-                return true;
+                endd=itr[0];
+                return true;}
+                else {
+                    ans-=wo;
+                return false;}
+                
             }
     }
+    path[node]=0;
+    ans-=we;
     //vec.pop_back();
     return false;
 }
@@ -33,21 +46,25 @@ int main()
 {
     lli n,m;
    cin>>n>>m;
-   vector<lli> adj[n+1];
+   vector<vector<lli>> adj[n+1];
    for(lli i=0;i<m;i++)
    {
-       lli a,b;
-       cin>>a>>b;
-       adj[a].push_back(b);
-       adj[b].push_back(a);
+       lli a,b,c;
+       cin>>a>>b>>c;
+       vector<lli> temp;
+       temp.push_back(b);
+       temp.push_back(c);
+       adj[a].push_back(temp);
+     //  adj[b].push_back(a);
    }
    vector<lli> vis(n+1,0);
+    vector<lli> path(n+1,0);
    vector<lli> pp(n+1);
    lli no=0;
    for(int i=1;i<=n;i++)
    {
        if(vis[i]==0){
-        if(dfs(adj,vis,pp,i,-1))
+        if(dfs(adj,vis,pp,i,-1,path,0))
            {
               // temp.push_back(i);
               //cout<<i<<endl;
@@ -68,12 +85,12 @@ int main()
         uff=pp[uff];
        }
        temp.push_back(cycle_node);
-       cout<<temp.size()<<endl;
+       reverse(temp.begin(),temp.end());
+       cout<<"YES"<<endl;
        for(lli i=0;i<temp.size();i++)
        cout<<temp[i]<<" ";
    }
 
 
     return 0;
-
 }
