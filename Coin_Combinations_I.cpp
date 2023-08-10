@@ -29,6 +29,26 @@ int main()
         }
     }
 
-    cout<<t[n][x]<<endl;
+    for(int i=0;i<N;i++)
+    {
+        for(int j=0;j<N;j++)
+        {
+            int val=arr[i][j];
+            int last=val%10;
+            if(last==5 || last==0)
+            {
+                continue;
+            }
+            else if(last<5)
+            {
+                arr[i][j]=arr[i][j]-last;
+            }
+            else{
+                int y=10-last;
+                arr[i][j]=arr[i][j]+y;
+            }
+        }
+    }
+    //cout<<t[n][x]<<endl;
     return 0;
 }
