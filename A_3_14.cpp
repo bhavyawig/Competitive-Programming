@@ -4,9 +4,9 @@ typedef long long int lli;
 
 int main()
 {
-    lli t; 
-    cin>>t;
-    for(lli e=0;e<t;e++)
+    lli test;
+    cin>>test;
+    for(lli e=0;e<test;e++)
     {
         
     }
