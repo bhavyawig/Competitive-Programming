@@ -4,10 +4,6 @@ typedef long long int lli;
 
 int main()
 {
-    lli test;
-    cin>>test;
-    for(lli e=0;e<test;e++)
-    {
      lli a,b,c;
      cin>>a>>b>>c;
         lli diff=abs(a-b);
@@ -15,6 +11,5 @@ int main()
        // cout<<val<<endl;
         double ans=ceil(val/c);
         cout<<ans<<endl;
-    }
     return 0;
 }
