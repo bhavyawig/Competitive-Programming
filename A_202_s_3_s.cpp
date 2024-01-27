@@ -4,9 +4,9 @@ typedef long long int lli;
 
 int main()
 {
-    string s,t;
-    cin>>s>>t;
-    cout<<s<<" san";
-
-   return 0;
+   string s;
+   cin>>s;
+   int len=s.length();
+   s[len-1]='4';
+   cout<<s;
 }

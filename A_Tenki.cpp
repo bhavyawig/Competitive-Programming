@@ -6,7 +6,10 @@ int main()
 {
     string s,t;
     cin>>s>>t;
-    cout<<s<<" san";
-
-   return 0;
+    lli cnt=0;
+    for(int i=0;i<=2;i++)
+    {
+        if(s[i]==t[i]) cnt++;
+    }
+    cout<<cnt<<endl;
 }

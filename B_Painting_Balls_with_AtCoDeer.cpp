@@ -4,9 +4,8 @@ typedef long long int lli;
 
 int main()
 {
-    string s,t;
-    cin>>s>>t;
-    cout<<s<<" san";
-
-   return 0;
+    lli n,k;
+    cin>>n>>k;
+    lli in=pow(k-1,n-1);
+    cout<<k*in<<endl;
 }

@@ -4,9 +4,8 @@ typedef long long int lli;
 
 int main()
 {
-    string s,t;
-    cin>>s>>t;
-    cout<<s<<" san";
-
-   return 0;
+    lli n;
+    cin>>n;
+    if(n==7 || n==5 || n==3) cout<<"YES";
+    else cout<<"NO";
 }

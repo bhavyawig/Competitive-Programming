@@ -4,9 +4,10 @@ typedef long long int lli;
 
 int main()
 {
-    string s,t;
-    cin>>s>>t;
-    cout<<s<<" san";
+    lli t;
+    cin>>t;
+    for(lli e=0;e<t;e++)
+    {
 
-   return 0;
+    }
 }

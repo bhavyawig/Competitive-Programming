@@ -4,9 +4,7 @@ typedef long long int lli;
 
 int main()
 {
-    string s,t;
-    cin>>s>>t;
-    cout<<s<<" san";
-
-   return 0;
+    lli a,b;
+    cin>>a>>b;
+    cout<<max(a+b,max(a-b,a*b));
 }
