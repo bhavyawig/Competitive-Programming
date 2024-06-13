@@ -8,7 +8,12 @@ int main() {
     cin>>test;
     for(lli e=0;e<test;e++)
     {
-        
+        string a,b;
+        cin>>a>>b;
+        char uf=a[0];
+        a[0]=b[0];
+        b[0]=uf;
+        cout<<a<<" "<<b<<endl;
     }
     return 0;
 }
